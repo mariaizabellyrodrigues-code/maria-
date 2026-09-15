@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRO ATHLETICS '90s | A Era de Ouro do Esporte Grunge</title>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d0c1d;
+            --card-bg: #16152b;
+            --primary: #ff0055;
+            --secondary: #00f0ff;
+            --accent: #ffe600;
+            --text-main: #ffffff;
+            --text-muted: #b3b0cb;
+            --border-color: #2e2a52;
+            --font-main: 'Montserrat', sans-serif;
+            --font-grunge: 'Permanent Marker', cursive;
+            --base-font-size: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: var(--base-font-size);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(255, 0, 85, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(0, 240, 255, 0.12) 0%, transparent 45%),
+                radial-gradient(rgba(255, 230, 0, 0.05) 1px, transparent 0);
+            background-size: 100% 100%, 100% 100%, 28px 28px;
+        }
+
+        /* Acessibilidade Bar */
+        .accessibility-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 10px;
+            background: rgba(22, 21, 43, 0.9);
+            padding: 10px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+
+        .access-btn {
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .access-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2.5rem);
+        }
+
+        /* Typography Fluid */
+        h1, h2, h3 {
+            text-transform: uppercase;
+        }
+
+        .grunge-title {
+            font-family: var(--font-grunge);
+            color: var(--accent);
+            text-transform: uppercase;
+            transform: rotate(-2deg);
+            display: inline-block;
+            text-shadow: 3px 3px 0px var(--primary);
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: clamp(5rem, 12vw, 9rem) 0 clamp(3rem, 8vw, 6rem);
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 45vw, 550px), 1fr));
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, #ff3300 100%);
+            color: #fff;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-weight: 900;
+            text-decoration: none;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 0, 85, 0.7);
+        }
+
+        .hero-image-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.2);
+            position: relative;
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            height: clamp(280px, 40vw, 420px);
+            object-fit: cover;
+            border-radius: 8px;
+            filter: saturate(140%) contrast(115%);
+        }
+
+        .badge-scarcity {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--accent);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 16px;
+            font-weight: 900;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transform: rotate(5deg);
+        }
+
+        /* Social Proof / Stats */
+        .stats-bar {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2.5rem 0;
+            margin: 3rem 0;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(1.5rem, 3vw, 3rem);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--secondary);
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            padding: clamp(3rem, 6vw, 6rem) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-top: 0.5rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .carousel-slide {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .carousel-slide.active {
+            display: grid;
+        }
+
+        .carousel-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+
+        .nav-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        }
+
+        /* Accordion Section (FAQ) */
+        .accordion-section {
+            padding: clamp(3rem, 6vw, 6rem) 0;
+            background: rgba(22, 21, 43, 0.5);
+        }
+
+        .accordion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: border-color 0.3s;
+        }
+
+        .accordion-item.active {
+            border-color: var(--secondary);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s;
+            color: var(--text-muted);
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 0 1.5rem 1.25rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+            color: var(--secondary);
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            padding: clamp(4rem, 8vw, 7rem) 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-color) 0%, var(--card-bg) 100%);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: #090814;
+        }
+
+        /* Blindagem do Modo de Contraste */
+        body.high-contrast, body.high-contrast *:not(i):not(.icon) {
+            background-color: #000 !important;
+            color: #fff !important;
+            border: 1px solid #ff0 !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+        body.high-contrast a, body.high-contrast button {
+            color: #ff0 !important;
+            text-decoration: underline !important;
+            font-weight: bold !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Acessibilidade Bar -->
+    <div class="accessibility-bar" role="region" aria-label="Controles de Acessibilidade">
+        <button class="access-btn" id="btn-font-increase" title="Aumentar Fonte">A+</button>
+        <button class="access-btn" id="btn-font-decrease" title="Diminuir Fonte">A-</button>
+        <button class="access-btn" id="btn-contrast" title="Alternar Alto Contraste">
+            <i data-lucide="eye" class="icon"></i> Contraste
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="grunge-title">Edição Limitada 1994</span>
+                    <h1 class="hero-title">O ESPÍRITO BRUTO DOS ANOS 90 VOLTOU.</h1>
+                    <p class="hero-subtitle">Basquete de rua vibrante, skate de atitude e a estética viva das néons que marcaram época. Garanta seu passe exclusivo para o ecossistema definitivo da cultura esportiva retro-grunge.</p>
+                    <a href="#join" class="cta-btn">
+                        Quero Meu Acesso VIP <i data-lucide="arrow-right" class="icon"></i>
+                    </a>
+                </div>
+                <div class="hero-image-card">
+                    <span class="badge-scarcity">Apenas 50 Vagas</span>
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" alt="Jogador de basquete com cores vivas e energia dos anos 90">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Social Proof / Stats -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Atletas Underground</div>
+                </div>
+                <div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Atitude Autêntica '90s</div>
+                </div>
+                <div>
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">Avaliação da Comunidade</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="grunge-title">Mural de Lendas</span>
+                <h2>Modalidades Autênticas</h2>
+            </div>
+            <div class="carousel-container">
+                <div id="carousel-render-target"></div>
+                <div class="carousel-nav">
+                    <button class="nav-btn" id="prev-slide" aria-label="Slide Anterior"><i data-lucide="chevron-left" class="icon"></i></button>
+                    <button class="nav-btn" id="next-slide" aria-label="Próximo Slide"><i data-lucide="chevron-right" class="icon"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accordion Section -->
+    <section class="accordion-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="grunge-title">Tire Suas Dúvidas</span>
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            <div class="accordion-container" id="accordion-render-target"></div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta" id="join">
+        <div class="container">
+            <span class="grunge-title">Última Chamada</span>
+            <h2>PRONTO PARA REIVINDICAR SEU ESPAÇO?</h2>
+            <p class="hero-subtitle" style="max-width: 600px; margin: 0 auto 2rem auto;">Não deixe para depois. A estética e o ritmo dos anos 90 não esperam por ninguém. Junte-se ao clube agora.</p>
+            <button class="cta-btn">
+                Garantir Minha Vaga Agora <i data-lucide="zap" class="icon"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 1990-2026 RETRO ATHLETICS. Todos os direitos reservados. Design e Engenharia de Alta Fidelidade.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // --- 1. DADOS DOS COMPONENTES (ARRAY DE OBJETOS) ---
+        const carouselData = [
+            {
+                title: "Street Basketball '94",
+                description: "As quadras vibrantes, o som das correntes na cesta e as cores intensas dos tênis de cano alto. O basquete nos anos 90 era puro espetáculo, energia e atitude de rua.",
+                image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80",
+                alt: "Basquete de rua colorido dos anos 90"
+            },
+            {
+                title: "Skateboarding Grunge Era",
+                description: "Calças largas, fitas VHS e o contraste das pistas de concreto com grafites vibrantes. O skate da década de 90 definiu o lifestyle e a revolução cultural urbana.",
+                image: "https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=800&q=80",
+                alt: "Skate urbano cheio de cor e estilo anos 90"
+            },
+            {
+                title: "Treino Neon & Weightlifting",
+                description: "Estética marcante, blusões vibrantes, anilhas pesadas e foco total. A fusão do estilo neon com a força bruta que revolucionou os treinos da época.",
+                image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+                alt: "Atleta em treino com cores intensas"
+            }
+        ];
+
+        const accordionData = [
+            {
+                question: "O que torna o estilo Retro-Grunge Vibrante tão único?",
+                answer: "A combinação de paletas de cores cyberpunk e neon com a energia crua da cultura de rua dos anos 90, resultando em um design impactante que destaca sua marca."
+            },
+            {
+                question: "Como funciona o acesso à plataforma?",
+                answer: "Após a confirmação, você recebe acesso imediato ao nosso portal VIP com coleções de treino, conteúdos de época arquivados e acesso à comunidade secreta de atletas."
+            },
+            {
+                question: "Existe garantia de reembolso?",
+                answer: "Sim, garantimos 7 dias incondicionais. Se você sentir que o espírito dos anos 90 não é para você, devolvemos 100% do seu investimento sem perguntas."
+            },
+            {
+                question: "As vagas são realmente limitadas?",
+                answer: "Sim! Para manter a exclusividade do grupo e o suporte personalizado, liberamos apenas 50 vagas por lote de adesão."
+            }
+        ];
+
+        // --- 2. RENDERIZAÇÃO DINÂMICA ---
+        function renderCarousel() {
+            const target = document.getElementById('carousel-render-target');
+            if (!target) return;
+
+            target.innerHTML = carouselData.map((item, index) => `
+                <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-slide="${index}">
+                    <div class="carousel-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                    <div class="hero-image-card">
+                        <img src="${item.image}" alt="${item.alt}">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAccordion() {
+            const target = document.getElementById('accordion-render-target');
+            if (!target) return;
+
+            target.innerHTML = accordionData.map((item, index) => `
+                <div class="accordion-item ${index === 0 ? 'active' : ''}">
+                    <button class="accordion-header" aria-expanded="${index === 0}">
+                        <span>${item.question}</span>
+                        <i data-lucide="chevron-down" class="accordion-icon icon"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>${item.answer}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 3. LÓGICA DE INTERAÇÃO & ESTADO ---
+        let currentSlide = 0;
+
+        function initCarouselControls() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('prev-slide');
+            const nextBtn = document.getElementById('next-slide');
+
+            if (!slides.length || !prevBtn || !nextBtn) return;
+
+            function updateSlides() {
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlides();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlides();
+            });
+        }
+
+        function initAccordionControls() {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    items.forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });// ==========================================
+// 1. DADOS DOS COMPONENTES (DATABASE LOCAL)
+// ==========================================
+
+const carouselData = [
+    {
+        title: "Street Basketball '94",
+        description: "As quadras vibrantes, o som das correntes na cesta e as cores intensas dos tênis de cano alto. O basquete nos anos 90 era puro espetáculo, energia e atitude de rua.",
+        image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80",
+        alt: "Basquete de rua colorido dos anos 90"
+    },
+    {
+        title: "Skateboarding Grunge Era",
+        description: "Calças largas, fitas VHS e o contraste das pistas de concrete com grafites vibrantes. O skate da década de 90 definiu o lifestyle e a revolução cultural urbana.",
+        image: "https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=800&q=80",
+        alt: "Skate urbano cheio de cor e estilo anos 90"
+    },
+    {
+        title: "Treino Neon & Weightlifting",
+        description: "Estética marcante, blusões vibrantes, anilhas pesadas e foco total. A fusão do estilo neon com a força bruta que revolucionou os treinos da época.",
+        image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
+        alt: "Atleta em treino com cores intensas"
+    }
+];
+
+const accordionData = [
+    {
+        question: "O que torna o estilo Retro-Grunge Vibrante tão único?",
+        answer: "A combinação de paletas de cores cyberpunk e neon com a energia crua da cultura de rua dos anos 90, resultando em um design impactante que destaca sua marca."
+    },
+    {
+        question: "Como funciona o acesso à plataforma?",
+        answer: "Após a confirmação, você recebe acesso imediato ao nosso portal VIP com coleções de treino, conteúdos de época arquivados e acesso à comunidade secreta de atletas."
+    },
+    {
+        question: "Existe garantia de reembolso?",
+        answer: "Sim, garantimos 7 dias incondicionais. Se você sentir que o espírito dos anos 90 não é para você, devolvemos 100% do seu investimento sem perguntas."
+    },
+    {
+        question: "As vagas são realmente limitadas?",
+        answer: "Sim! Para manter a exclusividade do grupo e o suporte personalizado, liberamos apenas 50 vagas por lote de adesão."
+    }
+];
+
+// ==========================================
+// 2. ESTADO GLOBAL DA APLICAÇÃO
+// ==========================================
+
+let currentSlide = 0;
+let currentFontSize = 16;
+const MIN_FONT_SIZE = 12;
+const MAX_FONT_SIZE = 24;
+
+// ==========================================
+// 3. RENDERIZAÇÃO DINÂMICA DE COMPONENTES
+// ==========================================
+
+function renderCarousel() {
+    const target = document.getElementById('carousel-render-target');
+    if (!target) return;
+
+    target.innerHTML = carouselData.map((item, index) => `
+        <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-slide="${index}">
+            <div class="carousel-content">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+            </div>
+            <div class="hero-image-card">
+                <img src="${item.image}" alt="${item.alt}">
+            </div>
+        </div>
+    `).join('');
+}
+
+function renderAccordion() {
+    const target = document.getElementById('accordion-render-target');
+    if (!target) return;
+
+    target.innerHTML = accordionData.map((item, index) => `
+        <div class="accordion-item ${index === 0 ? 'active' : ''}">
+            <button class="accordion-header" aria-expanded="${index === 0}">
+                <span>${item.question}</span>
+                <i data-lucide="chevron-down" class="accordion-icon icon"></i>
+            </button>
+            <div class="accordion-content">
+                <p>${item.answer}</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ==========================================
+// 4. LÓGICA DE INTERAÇÃO DOS COMPONENTES
+// ==========================================
+
+function initCarouselControls() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlides();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlides();
+    });
+}
+
+function initAccordionControls() {
+    const items = document.querySelectorAll('.accordion-item');
+
+    items.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            items.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+                header.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+}
+
+// ==========================================
+// 5. ACESSIBILIDADE E REGRAS DE NEGÓCIO
+// ==========================================
+
+function initAccessibility() {
+    const root = document.documentElement;
+    const btnIncrease = document.getElementById('btn-font-increase');
+    const btnDecrease = document.getElementById('btn-font-decrease');
+    const btnContrast = document.getElementById('btn-contrast');
+
+    if (btnIncrease) {
+        btnIncrease.addEventListener('click', () => {
+            const novaFonte = currentFontSize + 2;
+            if (novaFonte >= MIN_FONT_SIZE && novaFonte <= MAX_FONT_SIZE) {
+                currentFontSize = novaFonte;
+                root.style.setProperty('--base-font-size', `${currentFontSize}px`);
+            }
+        });
+    }
+
+    if (btnDecrease) {
+        btnDecrease.addEventListener('click', () => {
+            const novaFonte = currentFontSize - 2;
+            if (novaFonte >= MIN_FONT_SIZE && novaFonte <= MAX_FONT_SIZE) {
+                currentFontSize = novaFonte;
+                root.style.setProperty('--base-font-size', `${currentFontSize}px`);
+            }
+        });
+    }
+
+    if (btnContrast) {
+        btnContrast.addEventListener('click', () => {
+            document.body.classList.toggle('high-contrast');
+        });
+    }
+}
+
+// ==========================================
+// 6. INICIALIZAÇÃO DA APLICAÇÃO
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderCarousel();
+    renderAccordion();
+    initCarouselControls();
+    initAccordionControls();
+    initAccessibility();
+    
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+});
+        }
+
+        // --- 4. ACESSIBILIDADE (FONTE E CONTRASTE) ---
+        function initAccessibility() {
+            let currentFontSize = 16;
+            const root = document.documentElement;
+            const btnIncrease = document.getElementById('btn-font-increase');
+            const btnDecrease = document.getElementById('btn-font-decrease');
+            const btnContrast = document.getElementById('btn-contrast');
+
+            if (btnIncrease) {
+                btnIncrease.addEventListener('click', () => {
+                    if (currentFontSize < 24) {
+                        currentFontSize += 2;
+                        root.style.setProperty('--base-font-size', `${currentFontSize}px`);
+                    }
+                });
+            }
+
+            if (btnDecrease) {
+                btnDecrease.addEventListener('click', () => {
+                    if (currentFontSize > 12) {
+                        currentFontSize -= 2;
+                        root.style.setProperty('--base-font-size', `${currentFontSize}px`);
+                    }
+                });
+            }
+
+            if (btnContrast) {
+                btnContrast.addEventListener('click', () => {
+                    document.body.classList.toggle('high-contrast');
+                });
+            }
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCarousel();
+            renderAccordion();
+            initCarouselControls();
+            initAccordionControls();
+            initAccessibility();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
